@@ -2,8 +2,6 @@ ARG NODE_VERSION=18.0.0
 
 FROM node:${NODE_VERSION}-alpine
 
-ENV NODE_ENV production
-
 WORKDIR /usr/src/app
 
 RUN --mount=type=bind,source=package.json,target=package.json \
@@ -15,6 +13,6 @@ USER node
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 3300
 
-CMD node src/service/main.js
+CMD npm start
